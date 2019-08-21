@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Configuration;
 
 namespace AspDotNetSystemTest
 {
@@ -16,7 +17,8 @@ namespace AspDotNetSystemTest
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string companyName = WebConfigurationManager.AppSettings["CompanyName"];
+            companyName = txtCompanyName.Text;
         }
 
 
@@ -39,6 +41,7 @@ namespace AspDotNetSystemTest
 
         protected void Button2_Click(object sender, EventArgs e)
         {
+
             int firstNum = 0;
             int secondNum = 0;
             if (Int32.TryParse(txtFirstNum.Text, out firstNum) && Int32.TryParse(txtsecondNum.Text, out secondNum))
